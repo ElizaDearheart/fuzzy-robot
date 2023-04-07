@@ -14,8 +14,6 @@ const subtract = function (firstNumber, secondNumber) {
 
 };
 
-
-
 const multiply = function (firstNumber, secondNumber) {
     let multNumbers = firstNumber * secondNumber
     return multNumbers
@@ -25,6 +23,20 @@ const divide = function (firstNumber, secondNumber) {
     let divNumbers = firstNumber / secondNumber
     return divNumbers
 }
+
+const operate = function (operator, firstNumber, secondNumber) {
+    if (operator === "+") {
+        add(firstNumber, secondNumber)
+    } else if (operator === "-") {
+        subtract(firstNumber, secondNumber)
+    } else if (operator === "*") {
+        multiply(firstNumber, secondNumber)
+    } else if (operator === "/") {
+        divide(firstNumber, secondNumber)
+    }
+}
+
+
 /*
 const sum = function ([...nums]) {
     let sumNumbers = 0
