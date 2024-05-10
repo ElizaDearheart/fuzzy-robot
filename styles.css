@@ -9,7 +9,7 @@ button {
     padding: 8px 8px;
     border-radius: 8px;
     font-weight: bold;
-    background-color: gray;
+    background-color: grey;
     color: whitesmoke;
     font-size: large;
     margin: 2px;
@@ -27,15 +27,54 @@ button {
 .main-header-text {
     display: flex;
     text-align: center;
-    color: cadetblue;
+    color: purple;
+    font-size: 50px;
+    margin: auto;
 }
 
-.operations {
+.full-calc {
+    display: flex;
+    flex-direction: column;
+}
+
+.calc-display {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 45px;
+    display: flex;
+    width: 300px;
+    height: 50px;
+    border-width: 1px;
+    border-style: solid;
+    align-self: center;
+    margin: auto;
+}
+
+.calculator-keys {
     display: flex;
     flex-direction: column;
     margin: auto;
 }
 
+
+
+.numbers {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: auto;
+    justify-content: center;
+}
+
+.sum {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 50px;
+    margin: auto;
+    justify-content: center;
+}
+
+
+/*
 .calculator-body {
     display: flex;
     flex-direction: row;
@@ -43,9 +82,11 @@ button {
     margin: auto;
 }
 
-.numbers {
-    display: grid;
-    grid-template-columns: 100px 100px 100px;
-    grid-template-rows: auto;
-
+.main-ops {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: flex-end;
 }
+
+*/
