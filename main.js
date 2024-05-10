@@ -6,85 +6,106 @@ let operator;
 let display = document.querySelector('.calc-display');
 let clicked_keys = document.querySelectorAll('.calculator-keys')
 
-//buttons//
+function first() {
 
-keys.addEventListener('click', e => {
-    if (e.target.matches('button')) {
+    keys.addEventListener('click', e => {
         let key = e.target
-        let op = key.dataset.op
-        if (!op) {
-            console.log('number key')
-        }
-
-        if (
-            op === 'add' ||
-            op === 'subtract' ||
-            op === 'multiply' ||
-            op === 'divide'
-        ) {
-            console.log('op key')
-        }
-
-        if (op === 'decimal') {
-            console.log('decimal key')
-        }
-
-        if (op === 'clear') {
-            console.log('clear key')
-        }
-
-        if (op === 'equals') {
-            console.log('equals key')
-        }
-
-    }
-})
-
-
-
-
-//function displayText(e) {
-keys.addEventListener('click', e => {
-    if (e.target.matches('button')) {
-        let key = e.target;
         let op = key.dataset.op
         let sum = key.dataset.sum
         let keyContent = key.textContent
         let displayedNumber = display.textContent
+        if (e.target.matches('button')) {
+
+            if (!op) {
+                if (displayedNumber === '0') {
+                    display.textContent = keyContent
+                } else {
+                    display.textContent = displayedNumber + keyContent
+                    let firstNumber = display.textContent
+                    console.log(firstNumber + "first number")
+                }
 
 
-        if (!op) {
-            if (displayedNumber === '0') {
-                display.textContent = keyContent
-            } else {
-                display.textContent = displayedNumber + keyContent
-                let firstNumber = display.textContent
-                console.log(firstNumber)
             }
         }
+    })
 
-        if (op) {
-            if (op === 'clear') {
-                display.textContent = '0'
+}
+
+
+function determineOperator() {
+
+    keys.addEventListener('click', e => {
+        let key = e.target
+        let op = key.dataset.op
+        let sum = key.dataset.sum
+        let keyContent = key.textContent
+        let displayedNumber = display.textContent
+        if (e.target.matches('button')) {
+            if (op) {
+                if (op === 'clear') {
+                    display.textContent = '0'
+                    console.log('clear')
+                } else {
+                    display.textContent = displayedNumber + keyContent
+                    let operator = keyContent
+                    console.log(operator + 'op')
+                }
+
             }
-
-            else {
-                display.textContent = displayedNumber + keyContent
-                let operator = keyContent
-                console.log(operator)
-            }
-
-
-
         }
+    })
+
+}
+
+function second() {
+    keys.addEventListener('click', e => {
+        let key = e.target
+        let op = key.dataset.op
+        let sum = key.dataset.sum
+        let keyContent = key.textContent
+        let displayedNumber = display.textContent
+        if (e.target.matches('button')) {
 
 
+            if (!op) {
+                display.textContent = displayedNumber + keyContent
+                let secondNumber = display.textContent
+                console.log(secondNumber + "second number")
+            }
+        }
+    })
+
+}
+
+first()
+determineOperator()
+
+
+
+
+
+/*
+    if (
+        op === 'add' ||
+        op === 'subtract' ||
+        op === 'multiply' ||
+        op === 'divide'
+    ) {
+        console.log('op key')
     }
-})
+ 
+    if (op === 'decimal') {
+        console.log('decimal key')
+    }
+ 
+    if (op === 'equals') {
+        console.log('equals key')
+    }
+ 
+}
 
-
-
-
+-----
 const add = function (firstNumber, secondNumber) {
     let addNumbers = firstNumber + secondNumber
     return addNumbers
@@ -118,33 +139,6 @@ const operate = function (operator, firstNumber, secondNumber) {
         divide(firstNumber, secondNumber)
     }
 }
+--------
+} */
 
-
-/*
-const sum = function ([...nums]) {
-    let sumNumbers = 0
-    for (let num of nums) {
-        sumNumbers += Number(num)
-    }
-    return sumNumbers
-
-};
-
-const power = function (num, power) {
-    let powerNumber = Number(num) ** Number(power)
-    return powerNumber
-
-};
-
-const factorial = function (num) {
-    if (num === Number(0) || num === Number(1)) {
-        return Number(1)
-    } else if (num > 1) {
-        for (let i = num - 1; i >= 1; i--) {
-            num *= i
-        }
-
-        return num
-    }
-};
-*/
