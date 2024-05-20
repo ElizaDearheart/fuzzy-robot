@@ -17,7 +17,22 @@ function first() {
 
         if (e.target.matches('button')) {
 
-            if (!op) {
+            if (op) {
+                if (op === 'clear') {
+                    display.textContent = '0'
+                    inputNumber = ""
+                    operatorChosen = ""
+                    console.log('clear')
+                } else {
+                    display.textContent = displayedNumber + keyContent
+                    operator = keyContent
+                    operatorChosen = operator
+                    console.log(operator + 'op')
+                }
+
+            }
+
+            else {
 
                 if (displayedNumber === '0') {
                     display.textContent = keyContent
@@ -41,7 +56,7 @@ function first() {
     })
 }
 
-
+/*
 function determineOperator() {
 
     keys.addEventListener('click', e => {
@@ -69,14 +84,14 @@ function determineOperator() {
     })
 
 }
-
+*/
 
 
 // making calculations
 function calculate() {
 
     first()
-    determineOperator()
+    //determineOperator()
 
 }
 
