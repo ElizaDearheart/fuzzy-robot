@@ -12,6 +12,7 @@ function calculate() {
         let key = e.target
         let op = key.dataset.op
         let sum = key.dataset.sum
+        let dec = key.dataset.dec
         let keyContent = key.textContent
         let displayedNumber = display.textContent
 
@@ -34,7 +35,11 @@ function calculate() {
 
                 }
             }
+            /*
+            else if (dec) {
 
+            }
+            */
             else if (op) {
                 if (op === 'clear') {
                     display.textContent = '0'
@@ -59,16 +64,16 @@ function calculate() {
                 let secondNumber = array[1]
                 console.log('equals key')
                 if (operatorChosen === '+') {
-                    let answer = +firstNumber + +secondNumber
+                    let answer = parseFloat(+firstNumber + +secondNumber).toPrecision(3)
                     display.textContent = answer
                     console.log('equals' + answer)
 
                 } else if (operatorChosen === '-') {
-                    let answer = +firstNumber - +secondNumber
+                    let answer = parseFloat(+firstNumber - +secondNumber).toPrecision(3)
                     display.textContent = answer
                     console.log('equals' + answer)
                 } else if (operatorChosen === 'x') {
-                    let answer = firstNumber * secondNumber
+                    let answer = parseFloat(firstNumber * secondNumber).toPrecision(3)
                     display.textContent = answer
                     console.log('equals' + answer)
                 } else if (operatorChosen === '/') {
@@ -76,7 +81,7 @@ function calculate() {
                         display.textContent = 'error'
                     }
                     else {
-                        let answer = firstNumber / secondNumber
+                        let answer = parseFloat(firstNumber / secondNumber).toPrecision(3)
                         display.textContent = answer
                         console.log('equals' + answer)
                     }
