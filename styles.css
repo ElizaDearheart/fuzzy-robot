@@ -64,29 +64,23 @@ button {
     justify-content: center;
 }
 
+.sum_back {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 .sum {
     display: flex;
     flex-direction: column;
     width: 200px;
-    height: 50px;
-    margin: auto;
     justify-content: center;
 }
 
-
-/*
-.calculator-body {
+.back {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 200px;
     justify-content: center;
-    margin: auto;
 }
-
-.main-ops {
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    justify-content: flex-end;
-}
-
-*/
