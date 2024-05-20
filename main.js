@@ -6,33 +6,18 @@ let operatorChosen = ""
 let display = document.querySelector('.calc-display');
 let clicked_keys = document.querySelectorAll('.calculator-keys')
 
-// finding values
-function first() {
+function calculate() {
 
     keys.addEventListener('click', e => {
         let key = e.target
         let op = key.dataset.op
+        let sum = key.dataset.sum
         let keyContent = key.textContent
         let displayedNumber = display.textContent
 
         if (e.target.matches('button')) {
 
-            if (op) {
-                if (op === 'clear') {
-                    display.textContent = '0'
-                    inputNumber = ""
-                    operatorChosen = ""
-                    console.log('clear')
-                } else {
-                    display.textContent = displayedNumber + keyContent
-                    operator = keyContent
-                    operatorChosen = operator
-                    console.log(operator + 'op')
-                }
-
-            }
-
-            else {
+            if (!op && !sum) {
 
                 if (displayedNumber === '0') {
                     display.textContent = keyContent
@@ -50,29 +35,16 @@ function first() {
                 }
             }
 
-
-        }
-
-    })
-}
-
-/*
-function determineOperator() {
-
-    keys.addEventListener('click', e => {
-        let key = e.target
-        let op = key.dataset.op
-        let sum = key.dataset.sum
-        let keyContent = key.textContent
-        let displayedNumber = display.textContent
-        if (e.target.matches('button')) {
-            if (op) {
+            else if (op) {
                 if (op === 'clear') {
                     display.textContent = '0'
                     inputNumber = ""
                     operatorChosen = ""
                     console.log('clear')
-                } else {
+                } else if (op === 'add' ||
+                    op === 'subtract' ||
+                    op === 'multiply' ||
+                    op === 'divide') {
                     display.textContent = displayedNumber + keyContent
                     operator = keyContent
                     operatorChosen = operator
@@ -80,83 +52,44 @@ function determineOperator() {
                 }
 
             }
+
+            else if (sum) {
+                let array = inputNumber.split(operatorChosen)
+                let firstNumber = array[0]
+                let secondNumber = array[1]
+                console.log('equals key')
+                if (operatorChosen === '+') {
+                    let answer = +firstNumber + +secondNumber
+                    display.textContent = answer
+                    console.log('equals' + answer)
+
+                } else if (operatorChosen === '-') {
+                    let answer = +firstNumber - +secondNumber
+                    display.textContent = answer
+                    console.log('equals' + answer)
+                } else if (operatorChosen === 'x') {
+                    let answer = firstNumber * secondNumber
+                    display.textContent = answer
+                    console.log('equals' + answer)
+                } else if (operatorChosen === '/') {
+                    if (secondNumber === '0') {
+                        display.textContent = 'error'
+                    }
+                    else {
+                        let answer = firstNumber / secondNumber
+                        display.textContent = answer
+                        console.log('equals' + answer)
+                    }
+                }
+
+
+            }
         }
     })
-
 }
-*/
-
-
-// making calculations
-function calculate() {
-
-    first()
-    //determineOperator()
-
-}
-
 
 
 calculate()
 
 
-
-
-
-/*
-    if (
-        op === 'add' ||
-        op === 'subtract' ||
-        op === 'multiply' ||
-        op === 'divide'
-    ) {
-        console.log('op key')
-    }
- 
-    if (op === 'decimal') {
-        console.log('decimal key')
-    }
- 
-    if (op === 'equals') {
-        console.log('equals key')
-    }
- 
-}
-
------
-const add = function (firstNumber, secondNumber) {
-    let addNumbers = firstNumber + secondNumber
-    return addNumbers
-
-};
-
-const subtract = function (firstNumber, secondNumber) {
-    let subtractNumbers = firstNumber - secondNumber
-    return subtractNumbers
-
-};
-
-const multiply = function (firstNumber, secondNumber) {
-    let multNumbers = firstNumber * secondNumber
-    return multNumbers
-};
-
-const divide = function (firstNumber, secondNumber) {
-    let divNumbers = firstNumber / secondNumber
-    return divNumbers
-}
-
-const operate = function (operator, firstNumber, secondNumber) {
-    if (operator === "+") {
-        add(firstNumber, secondNumber)
-    } else if (operator === "-") {
-        subtract(firstNumber, secondNumber)
-    } else if (operator === "*") {
-        multiply(firstNumber, secondNumber)
-    } else if (operator === "/") {
-        divide(firstNumber, secondNumber)
-    }
-}
---------
-} */
 
