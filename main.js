@@ -1,35 +1,44 @@
 let calculator = document.querySelector('.fullcalc')
 let keys = calculator.querySelector('.calculator-keys')
-let firstNumber;
-let secondNumber;
+let inputNumber = "";
 let operator;
+let operatorChosen = ""
 let display = document.querySelector('.calc-display');
 let clicked_keys = document.querySelectorAll('.calculator-keys')
 
+// finding values
 function first() {
 
     keys.addEventListener('click', e => {
         let key = e.target
         let op = key.dataset.op
-        let sum = key.dataset.sum
         let keyContent = key.textContent
         let displayedNumber = display.textContent
+
         if (e.target.matches('button')) {
 
             if (!op) {
+
                 if (displayedNumber === '0') {
                     display.textContent = keyContent
+                    inputNumber = display.textContent
+
+                    console.log(inputNumber + "input")
+
                 } else {
                     display.textContent = displayedNumber + keyContent
-                    let firstNumber = display.textContent
-                    console.log(firstNumber + "first number")
+                    inputNumber = display.textContent
+
+                    console.log(inputNumber + "input")
+                    console.log(inputNumber.length)
+
                 }
-
-
             }
-        }
-    })
 
+
+        }
+
+    })
 }
 
 
@@ -45,10 +54,13 @@ function determineOperator() {
             if (op) {
                 if (op === 'clear') {
                     display.textContent = '0'
+                    inputNumber = ""
+                    operatorChosen = ""
                     console.log('clear')
                 } else {
                     display.textContent = displayedNumber + keyContent
-                    let operator = keyContent
+                    operator = keyContent
+                    operatorChosen = operator
                     console.log(operator + 'op')
                 }
 
@@ -58,28 +70,19 @@ function determineOperator() {
 
 }
 
-function second() {
-    keys.addEventListener('click', e => {
-        let key = e.target
-        let op = key.dataset.op
-        let sum = key.dataset.sum
-        let keyContent = key.textContent
-        let displayedNumber = display.textContent
-        if (e.target.matches('button')) {
 
 
-            if (!op) {
-                display.textContent = displayedNumber + keyContent
-                let secondNumber = display.textContent
-                console.log(secondNumber + "second number")
-            }
-        }
-    })
+// making calculations
+function calculate() {
+
+    first()
+    determineOperator()
 
 }
 
-first()
-determineOperator()
+
+
+calculate()
 
 
 
